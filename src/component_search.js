@@ -31,15 +31,15 @@ export class ExampleItem extends React.Component {
 			<div>
 				<small>type of: {this.props.typeOf.join(', ')}</small>
 				<p>
-					({this.props.partOfSpeech}) {this.props.definition}
+					<b>({this.props.partOfSpeech})</b> {this.props.definition}
 				</p>
 				<p>
 					types:{' '}
-					{this.props.hasTypes !== 'None' ? (
-						<i>{Object.values(this.props.hasTypes).join(', ')}</i>
-					) : (
-						''
-					)}
+					{this.props.hasTypes !== 'None'
+						? Object.values(this.props.hasTypes)
+								.slice(0, 2)
+								.join(', ')
+						: ''}
 				</p>
 				{this.props.examples !== 'None' ? (
 					<i>
@@ -50,14 +50,14 @@ export class ExampleItem extends React.Component {
 				) : (
 					''
 				)}
+				<br />
 				<b>
 					synonyms:{' '}
-					{this.props.synonyms !== 'None' ? (
-						<i>{Object.values(this.props.synonyms).join(', ')}</i>
-					) : (
-						''
-					)}
+					{this.props.synonyms !== 'None'
+						? Object.values(this.props.synonyms).join(', ')
+						: ''}
 				</b>
+				<hr />
 			</div>
 		);
 	}

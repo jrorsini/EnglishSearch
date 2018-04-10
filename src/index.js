@@ -29,7 +29,6 @@ const show_result = res => {
 };
 
 const show_examples = res => {
-	console.log(res.results[1]);
 	ReactDOM.render(
 		<div>
 			{res.results.map((e, i) => (
@@ -81,7 +80,3 @@ event_handler_setter(document.body, 'keydown', event =>
 			.catch(err => console.log(err))
 	)
 );
-
-hit_wordapi('test')
-	.then(show_examples)
-	.catch(err => console.log(err));
