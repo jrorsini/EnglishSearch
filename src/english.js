@@ -1,5 +1,10 @@
 const prepositions = ['off', 'up', 'on', 'from', 'out', 'down', 'away', 'in']
 
+/**
+ *
+ * @param {String} sentence to break down into words
+ * @return {Array} words list that the sentence has been broken into.
+ */
 const words_list = sentence => {
 	return sentence
 		.trim()
