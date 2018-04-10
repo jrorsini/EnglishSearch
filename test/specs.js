@@ -26,14 +26,14 @@ describe('Array', () => {
 	})
 
 	describe('#english.has_preposition()', () => {
-		it("Should break down sentence's word's list", () => {
+		it('#test1 Should return true wether or not the last word is a preposition', () => {
 			assert.equal(english.has_preposition('drop him off'), true)
 		})
-		it("Should break down sentence's word's list", () => {
+		it('#test2 Should return true wether or not the last word is a preposition', () => {
 			assert.equal(english.has_preposition('drop him'), false)
 		})
-		it("Should break down sentence's word's list", () => {
-			assert.equal(english.has_preposition('drop him out'), true)
+		it('#test3 Should return true wether or not the last word is a preposition', () => {
+			assert.equal(english.has_preposition('drop him out'), false)
 		})
 	})
 })
