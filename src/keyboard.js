@@ -6,8 +6,12 @@
  */
 const key_handler = (event, _keyCode, callback) => {
 	if (event.keyCode === _keyCode) {
-		callback()
+		try {
+			callback();
+		} catch (error) {
+			console.log(err);
+		}
 	}
-}
+};
 
-export default key_handler
+export default key_handler;

@@ -1,12 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 /**
  * @class {JSX} creates Search component.
  * @return {JSX} input element.
  */
-export default class Search extends React.Component {
+export class Search extends React.Component {
 	render() {
-		return <input type="text" id="search_bar" />
+		return <input type="text" id="search_bar" />;
+	}
+}
+
+export class ExampleItem extends React.Component {
+	render() {
+		return (
+			<div>
+				<small>type of: communicating, communication</small>
+				<p>(Noun) trying something to find out about it</p>
+				<p>
+					types: trial balloon, road test, alpha test, field test, field trial,
+					beta test
+				</p>
+				<i>"the test was standardized on a large sample of students"</i> <br />
+				<b>synonyms: mental test, mental testing, psychometric test</b>
+			</div>
+		);
 	}
 }
