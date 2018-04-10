@@ -16,14 +16,6 @@ export class Search extends React.Component {
 export class ExampleItem extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			definition: this.props.definition,
-			partOfSpeech: this.props.partOfSpeech,
-			hasTypes: this.props.hasTypes,
-			examples: this.props.examples,
-			synonyms: this.props.synonyms,
-			typeOf: this.props.typeOf
-		};
 	}
 
 	render() {
