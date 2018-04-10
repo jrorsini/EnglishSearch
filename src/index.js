@@ -8,7 +8,7 @@ import wapi from './word_api_handler';
 ReactDOM.render(
 	<div>
 		<Search />
-		<ExampleItem />
+		<div id="examples" />
 	</div>,
 	document.getElementById('app')
 );
@@ -24,8 +24,22 @@ const event_handler_setter = (element2Apply, eventName, _function) => {
 	element2Apply.addEventListener(eventName, _function);
 };
 
-const show_definition_result = res => {
+const show_result = res => {
 	console.log(wapi.pronunciation(res));
+};
+
+const show_examples = res => {
+	console.log(res.results[1]);
+
+	console.log(wapi.get_prop_value(res.results[1], 'definition'));
+	console.log(wapi.get_prop_value(res.results[1], 'partOfSpeech'));
+	console.log(wapi.get_prop_value(res.results[1], 'hasTypes'));
+	console.log(wapi.get_prop_value(res.results[1], 'synonyms'));
+	console.log(wapi.get_prop_value(res.results[1], 'typeOf'));
+	ReactDOM.render(
+		<div>{res.results.map((e, i) => <ExampleItem key={i} />)}</div>,
+		document.getElementById('examples')
+	);
 };
 
 /**
@@ -57,7 +71,11 @@ const hit_wordapi = word =>
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
 		hit_wordapi(document.getElementById('search_bar').value.trim())
-			.then(show_definition_result)
+			.then(show_examples)
 			.catch(err => console.log(err))
 	)
 );
+
+hit_wordapi('test')
+	.then(show_examples)
+	.catch(err => console.log(err));

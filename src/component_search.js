@@ -14,6 +14,13 @@ export class Search extends React.Component {
  * @class creates Result's example items.
  */
 export class ExampleItem extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: this.props
+		};
+	}
+
 	render() {
 		return (
 			<div>
