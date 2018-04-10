@@ -30,14 +30,20 @@ const show_result = res => {
 
 const show_examples = res => {
 	console.log(res.results[1]);
-
-	console.log(wapi.get_prop_value(res.results[1], 'definition'));
-	console.log(wapi.get_prop_value(res.results[1], 'partOfSpeech'));
-	console.log(wapi.get_prop_value(res.results[1], 'hasTypes'));
-	console.log(wapi.get_prop_value(res.results[1], 'synonyms'));
-	console.log(wapi.get_prop_value(res.results[1], 'typeOf'));
 	ReactDOM.render(
-		<div>{res.results.map((e, i) => <ExampleItem key={i} />)}</div>,
+		<div>
+			{res.results.map((e, i) => (
+				<ExampleItem
+					key={i}
+					definition={wapi.get_prop_value(e, 'definition')}
+					partOfSpeech={wapi.get_prop_value(e, 'partOfSpeech')}
+					hasTypes={wapi.get_prop_value(e, 'hasTypes')}
+					synonyms={wapi.get_prop_value(e, 'synonyms')}
+					typeOf={wapi.get_prop_value(e, 'typeOf')}
+					examples={wapi.get_prop_value(e, 'examples')}
+				/>
+			))}
+		</div>,
 		document.getElementById('examples')
 	);
 };

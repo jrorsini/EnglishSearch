@@ -6,9 +6,6 @@ const pronunciation = res =>
  * @param {String} prop propety value to look for from result element.
  * @return {String} definition of the element.
  */
-const get_prop_value = (e, prop) =>
-	e[prop]
-		? typeof e[prop] === 'string' ? e[prop] : e[prop].join(', ')
-		: 'None';
+const get_prop_value = (e, prop) => (e[prop] ? e[prop] : 'None');
 
 module.exports = { pronunciation, get_prop_value };
