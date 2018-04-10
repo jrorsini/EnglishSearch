@@ -24,19 +24,17 @@ const event_handler_setter = (element2Apply, eventName, _function) => {
 	element2Apply.addEventListener(eventName, _function);
 };
 
-const random_funct = () => {
-	const bar = document.getElementById('search_bar');
-	console.log(bar.value);
+const show_definition_result = res => {
+	console.log(wapi.pronunciation(res));
 };
 
-event_handler_setter(document.body, 'keydown', event =>
-	keyHandler(event, 13, () =>
-		hit_wordapi(document.getElementById('search_bar').value.trim())
-			.then(show_definition_result)
-			.catch(err => console.log(err))
-	)
-);
-
+/**
+ *
+ * @param {String} word to translate
+ * @promise that fecthes data from WordApi
+ * @resolve Fetched Data
+ * @reject couldn't reach
+ */
 const hit_wordapi = word =>
 	new Promise((resolve, reject) => {
 		const xhr = new XMLHttpRequest();
@@ -56,6 +54,10 @@ const hit_wordapi = word =>
 		};
 	});
 
-const show_definition_result = res => {
-	console.log(res);
-};
+event_handler_setter(document.body, 'keydown', event =>
+	keyHandler(event, 13, () =>
+		hit_wordapi(document.getElementById('search_bar').value.trim())
+			.then(show_definition_result)
+			.catch(err => console.log(err))
+	)
+);

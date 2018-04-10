@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 /**
- * @class {JSX} creates Search component.
- * @return {JSX} input element.
+ * @class creates Search component.
  */
 export class Search extends React.Component {
 	render() {
@@ -11,6 +10,9 @@ export class Search extends React.Component {
 	}
 }
 
+/**
+ * @class creates Result's example items.
+ */
 export class ExampleItem extends React.Component {
 	render() {
 		return (
