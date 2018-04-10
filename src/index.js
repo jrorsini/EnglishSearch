@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Search, ExampleItem } from './component_search';
 import keyHandler from './keyboard';
 import eng from './english';
+import wapi from './word_api_handler';
 
 ReactDOM.render(
 	<div>
@@ -30,13 +31,13 @@ const random_funct = () => {
 
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
-		hit_word_api(document.getElementById('search_bar').value)
+		hit_wordapi(document.getElementById('search_bar').value.trim())
 			.then(show_definition_result)
 			.catch(err => console.log(err))
 	)
 );
 
-const hit_word_api = word =>
+const hit_wordapi = word =>
 	new Promise((resolve, reject) => {
 		const xhr = new XMLHttpRequest();
 		xhr.open('GET', `https://wordsapiv1.p.mashape.com/words/${word}/`);
@@ -46,8 +47,8 @@ const hit_word_api = word =>
 		);
 		xhr.setRequestHeader('Accept', 'application/json');
 		xhr.send();
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === 4) {
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === 4 && xhr.status == 200) {
 				resolve(JSON.parse(xhr.responseText));
 			} else if (xhr.status !== 200) {
 				reject(xhr.statusText);

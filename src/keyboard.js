@@ -8,7 +8,7 @@ const key_handler = (event, _keyCode, callback) => {
 	if (event.keyCode === _keyCode) {
 		try {
 			callback();
-		} catch (error) {
+		} catch (err) {
 			console.log(err);
 		}
 	}
