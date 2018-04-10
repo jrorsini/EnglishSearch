@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 /**
  * @class creates Search component.
  */
 export class Search extends React.Component {
 	render() {
-		return <input type="text" id="search_bar" />;
+		return <input type="text" id="search_bar" />
 	}
 }
 
@@ -15,13 +15,17 @@ export class Search extends React.Component {
  */
 export class ExampleItem extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
 		return (
 			<div>
-				<small>type of: {this.props.typeOf.join(', ')}</small>
+				<small>
+					type of:{this.props.typeOf !== 'None'
+						? Object.values(this.props.typeOf).join(', ')
+						: ''}
+				</small>
 				<p>
 					<b>({this.props.partOfSpeech})</b> {this.props.definition}
 				</p>
@@ -51,6 +55,6 @@ export class ExampleItem extends React.Component {
 				</b>
 				<hr />
 			</div>
-		);
+		)
 	}
 }
