@@ -7,6 +7,6 @@ import ReactDOM from 'react-dom'
  */
 export default class Search extends React.Component {
 	render() {
-		return <input type="text" />
+		return <input type="text" id="search_bar" />
 	}
 }
