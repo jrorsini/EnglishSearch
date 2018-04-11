@@ -50,7 +50,7 @@ const show_examples = res => {
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
 		wapi
-			.search(document.getElementById('search_bar').value.trim())
+			.search(eng.format(document.getElementById('search_bar').value))
 			.then(show_examples)
 			.catch(err => console.log(err))
 	)

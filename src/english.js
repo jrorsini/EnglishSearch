@@ -40,14 +40,17 @@ const is_preposition = word => {
 	return prepositions.indexOf(word) !== -1 ? true : false
 }
 
-const search_format = sentence =>
+const format = sentence =>
 	words(sentence).length > 1
-		? last(sentence).is_preposition
+		? is_preposition(last(sentence))
 			? `${first(sentence)} ${last(sentence)}`
 			: first(sentence)
 		: first(sentence)
 
+console.log(format('drop off'))
+
 module.exports = {
-	last_is_preposition,
+	is_preposition,
+	format,
 	words
 }
