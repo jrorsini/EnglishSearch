@@ -4,7 +4,7 @@
  * @param {String} prop propety value to look for from result element.
  * @return {String} definition of the element.
  */
-const get_prop_value = (e, prop) => (e[prop] ? e[prop] : 'None')
+const get_prop_value = (e, prop) => (e[prop] ? e[prop] : false)
 
 /**
  *

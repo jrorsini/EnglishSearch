@@ -1,26 +1,53 @@
-const prepositions = ['off', 'up', 'on', 'from', 'out', 'down', 'away', 'in']
-
+const prepositions = [
+	'up',
+	'on',
+	'in',
+	'off',
+	'out',
+	'from',
+	'down',
+	'away',
+	'over'
+]
 /**
- *
- * @param {String} sentence to break down into words
+ * @param {String} sentence to break down into words.
  * @return {Array} words list that the sentence has been broken into.
  */
-const words_list = sentence => {
+const words = sentence => {
 	return sentence
 		.trim()
 		.split(/\s/)
 		.map(e => e.replace(/[\.\,\:\?\!]/gi, ''))
 }
 
-const has_preposition = sentence => {
-	const last_word = words_list(sentence)[words_list(sentence).length - 1]
-	return prepositions.indexOf(last_word) !== -1 ? true : false
+/**
+ * @param {String} sentence to pick up the first word for
+ * @return {String} first word
+ */
+const first = sentence => words(sentence)[0]
+
+/**
+ * @param {String} sentence to pick up the last word for
+ * @return {String} last word
+ */
+const last = sentence => words(sentence)[words(sentence).length - 1]
+
+/**
+ * @param {String} word to check if preposition.
+ * @return {Boolean} wether or not the last word is a preposition.
+ */
+const is_preposition = word => {
+	return prepositions.indexOf(word) !== -1 ? true : false
 }
 
-const has_phrasal_verb = sentence => {}
+const search_format = sentence =>
+	words(sentence).length > 1
+		? last(sentence).is_preposition
+			? `${first(sentence)} ${last(sentence)}`
+			: first(sentence)
+		: first(sentence)
 
 module.exports = {
-	has_phrasal_verb,
-	has_preposition,
-	words_list
+	last_is_preposition,
+	words
 }
