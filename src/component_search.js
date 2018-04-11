@@ -22,19 +22,18 @@ export class ExampleItem extends React.Component {
 		return (
 			<div>
 				<small>
-					type of:{this.props.typeOf !== 'None'
-						? Object.values(this.props.typeOf).join(', ')
+					{this.props.typeOf !== 'None'
+						? `type of: ${Object.values(this.props.typeOf).join(', ')}`
 						: ''}
 				</small>
 				<p>
 					<b>({this.props.partOfSpeech})</b> {this.props.definition}
 				</p>
 				<p>
-					types:{' '}
 					{this.props.hasTypes !== 'None'
-						? Object.values(this.props.hasTypes)
+						? `types:  ${Object.values(this.props.hasTypes)
 								.slice(0, 2)
-								.join(', ')
+								.join(', ')}`
 						: ''}
 				</p>
 				{this.props.examples !== 'None' ? (

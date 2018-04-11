@@ -47,8 +47,6 @@ const format = sentence =>
 			: first(sentence)
 		: first(sentence)
 
-console.log(format('drop off'))
-
 module.exports = {
 	is_preposition,
 	format,
