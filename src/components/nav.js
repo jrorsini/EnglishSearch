@@ -7,10 +7,10 @@ class Nav extends Component {
 				<a>English</a>
 				<ul>
 					<li>
-						<a>Search</a>
+						<a href="#">Search</a>
 					</li>
 					<li>
-						<a>List</a>
+						<a href="#">List</a>
 					</li>
 				</ul>
 			</nav>
