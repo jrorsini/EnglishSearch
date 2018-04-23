@@ -4,16 +4,17 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 class Nav extends Component {
 	render() {
 		return (
-			<nav>
+			<nav className="nav">
 				<ul>
 					<li>
-						<Link to="/">English</Link>
+						<Link className="nav-link" to="/search">
+							Search
+						</Link>
 					</li>
 					<li>
-						<Link to="/search">Search</Link>
-					</li>
-					<li>
-						<Link to="/list">List</Link>
+						<Link className="nav-link" to="/list">
+							List
+						</Link>
 					</li>
 				</ul>
 			</nav>

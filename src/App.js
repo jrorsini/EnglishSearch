@@ -14,9 +14,8 @@ class App extends Component {
 					<header className="App-header">
 						<Nav />
 					</header>
-					<Route exact path="/" component={Home} />
 					<Route exact path="/search" component={Search} />
-					<Route exact path="/list" component={List} />
+					<Route path="/list" component={List} />
 				</div>
 			</Router>
 		);
