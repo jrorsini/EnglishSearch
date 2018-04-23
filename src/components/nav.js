@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Nav extends Component {
 	render() {
 		return (
 			<nav>
-				<a>English</a>
 				<ul>
 					<li>
-						<a href="#">Search</a>
+						<Link to="/">English</Link>
 					</li>
 					<li>
-						<a href="#">List</a>
+						<Link to="/search">Search</Link>
+					</li>
+					<li>
+						<Link to="/list">List</Link>
 					</li>
 				</ul>
 			</nav>
