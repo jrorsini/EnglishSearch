@@ -1,29 +1,16 @@
 {
-  "name": "EnglishSearch",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/jrorsini/EnglishSearch.git",
-  "author": "<jeanroger.orsini@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "build": "webpack",
-    "test": "mocha",
-    "dev": "webpack-dev-server"
-  },
+  "name": "temp",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.42",
-    "@babel/preset-react": "^7.0.0-beta.42",
-    "axios": "^0.18.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "concurrently": "^3.5.1",
-    "mocha": "^5.0.5",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
-    "webpack-dev-server": "^3.1.3"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
