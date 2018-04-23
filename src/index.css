@@ -5,10 +5,20 @@
 }
 
 ul {
+	float: right;
+	height: 50px;
+	padding: 0 40px;
 	list-style: none;
 }
 
+li {
+	display: inline-block;
+}
+
 .nav-link {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
 	color: #fff;
 	text-decoration: none;
 }
