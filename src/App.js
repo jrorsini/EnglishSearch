@@ -6,6 +6,11 @@ import List from './components/list';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
 
+const divStyle = {
+	margin: 'auto',
+	width: '40rem'
+};
+
 class App extends Component {
 	render() {
 		return (
@@ -14,8 +19,10 @@ class App extends Component {
 					<header className="App-header">
 						<Nav />
 					</header>
-					<Route exact path="/search" component={Search} />
-					<Route path="/list" component={List} />
+					<div style={divStyle}>
+						<Route exact path="/search" component={Search} />
+						<Route path="/list" component={List} />
+					</div>
 				</div>
 			</Router>
 		);
