@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import Nav from './components/nav';
-import Home from './components/home';
-import Search from './components/search';
-import List from './components/list';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
+import React, { Component } from 'react'
+import Nav from './components/nav'
+import Home from './components/home'
+import Search from './components/search'
+import List from './components/list'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import './App.css'
 
 const divStyle = {
 	margin: 'auto',
-	width: '40rem'
-};
+	width: '40rem',
+	padding: '2rem 0'
+}
 
 class App extends Component {
 	render() {
@@ -25,8 +26,8 @@ class App extends Component {
 					</div>
 				</div>
 			</Router>
-		);
+		)
 	}
 }
 
-export default App;
+export default App

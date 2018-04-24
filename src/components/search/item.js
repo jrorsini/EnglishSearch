@@ -10,7 +10,7 @@ class ExampleItem extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="search-item">
 				<small>
 					{this.props.typeOf !== 'None'
 						? `type of: ${Object.values(this.props.typeOf).join(', ')}`
@@ -42,7 +42,6 @@ class ExampleItem extends Component {
 						? Object.values(this.props.synonyms).join(', ')
 						: ''}
 				</b>
-				<hr />
 			</div>
 		)
 	}
