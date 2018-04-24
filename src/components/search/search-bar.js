@@ -1,0 +1,12 @@
+import React, { Component } from 'react'
+
+/**
+ * @class creates Search component.
+ */
+class SearchBar extends React.Component {
+	render() {
+		return <input type="text" id="js-search_bar" />
+	}
+}
+
+export default SearchBar

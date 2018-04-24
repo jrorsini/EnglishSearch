@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import SearchBar from './search/search-bar'
+import ExampleItem from './search/item'
 
 class Search extends Component {
 	render() {
-		return <div>Search</div>;
+		return (
+			<div>
+				<SearchBar />
+			</div>
+		)
 	}
 }
 
-export default Search;
+export default Search

@@ -1,19 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-/**
- * @class creates Search component.
- */
-export class Search extends React.Component {
-	render() {
-		return <input type="text" id="search_bar" />
-	}
-}
+import React, { Component } from 'react'
 
 /**
  * @class creates Result's example items.
  */
-export class ExampleItem extends React.Component {
+class ExampleItem extends Component {
 	constructor(props) {
 		super(props)
 	}
@@ -57,3 +47,5 @@ export class ExampleItem extends React.Component {
 		)
 	}
 }
+
+export default ExampleItem
