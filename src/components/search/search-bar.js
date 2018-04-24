@@ -5,7 +5,7 @@ import React, { Component } from 'react'
  */
 class SearchBar extends React.Component {
 	render() {
-		return <input type="text" id="js-search_bar" />
+		return <input type="text" className="search_bar" id="js-search_bar" />
 	}
 }
 
