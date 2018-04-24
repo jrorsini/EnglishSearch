@@ -1,21 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 /**
  * @class creates Result's example items.
  */
 class ExampleItem extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 	}
 
 	render() {
 		return (
 			<div className="search-item">
-				<small>
-					{this.props.typeOf !== 'None'
-						? `type of: ${Object.values(this.props.typeOf).join(', ')}`
-						: ''}
-				</small>
+				<button>+</button>
 				<p>
 					<b>({this.props.partOfSpeech})</b> {this.props.definition}
 				</p>
@@ -43,8 +39,8 @@ class ExampleItem extends Component {
 						: ''}
 				</b>
 			</div>
-		)
+		);
 	}
 }
 
-export default ExampleItem
+export default ExampleItem;
