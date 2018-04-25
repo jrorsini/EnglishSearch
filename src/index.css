@@ -38,8 +38,15 @@ li {
     outline: none;
 }
 
+.search-preview {
+    margin-top: 15px;
+}
+
 .search-item {
     margin-top: 15px;
+}
+
+.block {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
