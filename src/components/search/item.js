@@ -37,9 +37,8 @@ class ExampleItem extends Component {
 				)}
 				<br />
 				<b>
-					synonyms:{' '}
 					{this.props.synonyms !== 'None'
-						? Object.values(this.props.synonyms).join(', ')
+						? `synonyms: ${Object.values(this.props.synonyms).join(', ')}`
 						: ''}
 				</b>
 			</div>
