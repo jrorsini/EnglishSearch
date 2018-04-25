@@ -23,6 +23,16 @@ const event_handler_setter = (element2Apply, eventName, _function) => {
 	element2Apply.addEventListener(eventName, _function)
 }
 
+const partOfSpeechList = res => {
+	let list = []
+	res.results.map(e => {
+		if (list.indexOf(e.partOfSpeech) === -1) {
+			list.push(e.partOfSpeech)
+		}
+	})
+	return list
+}
+
 const show_result = res => {
 	// console.log(res)
 	//https://glosbe.com/gapi/translate?from=eng&dest=fra&format=json&phrase=hello&pretty=true
@@ -41,85 +51,44 @@ const show_result = res => {
 				syllablesCount={res.syllables ? res.syllables.count : ''}
 				syllablesList={res.syllables ? res.syllables.list : ''}
 			/>
-
-			<form>
-				<select>
-					<option>All</option>
-					<option>Nouns</option>
-					<option>Verbs</option>
-					<option>Adjective</option>
-				</select>
-			</form>
-
-			<div
-				style={{
-					padding: '0 1rem'
-				}}
-			>
-				{res.results.map((e, i) => (
-					<ExampleItem
-						key={i}
-						definition={wapi.get_prop_value(e, 'definition')}
-						partOfSpeech={wapi.get_prop_value(e, 'partOfSpeech')}
-						hasTypes={wapi.get_prop_value(e, 'hasTypes')}
-						synonyms={wapi.get_prop_value(e, 'synonyms')}
-						typeOf={wapi.get_prop_value(e, 'typeOf')}
-						examples={wapi.get_prop_value(e, 'examples')}
-					/>
-				))}
-			</div>
-		</div>,
-		document.getElementById('js-examples')
-	)
-}
-
-const show_examples = res => {
-	ReactDOM.render(
-		<div>
-			<Preview
-				word={res.word}
-				pronunciation={
-					res.pronunciation
-						? res.pronunciation.all
-							? res.pronunciation.all
-							: res.pronunciation
-						: ''
-				}
-				frequency={res.frequency ? res.frequency : ''}
-				syllablesCount={res.syllables ? res.syllables.count : ''}
-				syllablesList={res.syllables ? res.syllables.list : ''}
-			/>
-
-			<form>
-				<select>
-					<option>All</option>
-					<option>Nouns</option>
-					<option>Verbs</option>
-					<option>Adjective</option>
-				</select>
-			</form>
+			{partOfSpeechList(res).length !== 0 ? (
+				<form>
+					<select>
+						{partOfSpeechList(res).map((e, i) => (
+							<option key={i} value={e}>
+								{e}
+							</option>
+						))}
+					</select>
+				</form>
+			) : (
+				''
+			)}
 
 			<div
 				style={{
 					padding: '0 1rem'
 				}}
 			>
-				{res.results.map((e, i) => (
-					<ExampleItem
-						key={i}
-						definition={wapi.get_prop_value(e, 'definition')}
-						partOfSpeech={wapi.get_prop_value(e, 'partOfSpeech')}
-						hasTypes={wapi.get_prop_value(e, 'hasTypes')}
-						synonyms={wapi.get_prop_value(e, 'synonyms')}
-						typeOf={wapi.get_prop_value(e, 'typeOf')}
-						examples={wapi.get_prop_value(e, 'examples')}
-					/>
-				))}
+				{show_examples(res)}
 			</div>
 		</div>,
 		document.getElementById('js-examples')
 	)
 }
+
+const show_examples = res =>
+	res.results.map((e, i) => (
+		<ExampleItem
+			key={i}
+			definition={wapi.get_prop_value(e, 'definition')}
+			partOfSpeech={wapi.get_prop_value(e, 'partOfSpeech')}
+			hasTypes={wapi.get_prop_value(e, 'hasTypes')}
+			synonyms={wapi.get_prop_value(e, 'synonyms')}
+			typeOf={wapi.get_prop_value(e, 'typeOf')}
+			examples={wapi.get_prop_value(e, 'examples')}
+		/>
+	))
 
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
@@ -128,6 +97,7 @@ event_handler_setter(document.body, 'keydown', event =>
 			.then(res => {
 				console.log(res.results.map(e => wapi.get_prop_value(e, 'synonyms')))
 				show_result(res)
+				console.log()
 			})
 			.catch(err => console.log(err))
 	)
