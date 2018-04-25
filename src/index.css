@@ -38,8 +38,26 @@ li {
 	outline: none;
 }
 
+.search-preview {
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+.search-preview span,
+.search-preview small,
+.search-preview b {
+	color: #ff468f;
+}
+
+.search-preview h3 b {
+	text-transform: capitalize;
+}
+
 .search-item {
 	margin-top: 15px;
+}
+
+.block {
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;

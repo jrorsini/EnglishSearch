@@ -10,19 +10,32 @@ class ExampleItem extends Component {
 
 	render() {
 		return (
-			<div className="search-item">
-				<button>+</button>
+			<div className="block search-item">
+				{this.props.typeOf !== false ? (
+					<small>
+						<b>type of: </b>
+						{Object.values(this.props.typeOf).join(', ')}
+					</small>
+				) : (
+					''
+				)}
+
 				<p>
-					<b>({this.props.partOfSpeech})</b> {this.props.definition}
+					<b>{this.props.partOfSpeech}_</b> {this.props.definition}
 				</p>
-				<p>
-					{this.props.hasTypes !== 'None'
-						? `types:  ${Object.values(this.props.hasTypes)
-								.slice(0, 2)
-								.join(', ')}`
-						: ''}
-				</p>
-				{this.props.examples !== 'None' ? (
+
+				{this.props.hasTypes !== false ? (
+					<p>
+						<u>types:</u>
+						{Object.values(this.props.hasTypes)
+							.slice(0, 2)
+							.join(', ')}
+					</p>
+				) : (
+					''
+				)}
+
+				{this.props.examples !== false ? (
 					<i>
 						{Object.values(this.props.examples)
 							.map(e => `"${e}"`)
@@ -31,13 +44,14 @@ class ExampleItem extends Component {
 				) : (
 					''
 				)}
-				<br />
-				<b>
-					synonyms:{' '}
-					{this.props.synonyms !== 'None'
-						? Object.values(this.props.synonyms).join(', ')
-						: ''}
-				</b>
+
+				<p>
+					<b>
+						{this.props.synonyms !== false
+							? `synonyms: ${Object.values(this.props.synonyms).join(', ')}`
+							: ''}
+					</b>
+				</p>
 			</div>
 		);
 	}
