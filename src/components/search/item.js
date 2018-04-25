@@ -45,11 +45,13 @@ class ExampleItem extends Component {
 					''
 				)}
 
-				<b>
-					{this.props.synonyms !== false
-						? `synonyms: ${Object.values(this.props.synonyms).join(', ')}`
-						: ''}
-				</b>
+				<p>
+					<b>
+						{this.props.synonyms !== false
+							? `synonyms: ${Object.values(this.props.synonyms).join(', ')}`
+							: ''}
+					</b>
+				</p>
 			</div>
 		)
 	}

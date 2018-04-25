@@ -51,9 +51,10 @@ const show_result = res => {
 				syllablesCount={res.syllables ? res.syllables.count : ''}
 				syllablesList={res.syllables ? res.syllables.list : ''}
 			/>
-			{partOfSpeechList(res).length !== 0 ? (
+			{partOfSpeechList(res).length > 1 ? (
 				<form>
 					<select>
+						<option value="all">All</option>
 						{partOfSpeechList(res).map((e, i) => (
 							<option key={i} value={e}>
 								{e}
