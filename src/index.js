@@ -27,15 +27,27 @@ const show_result = res => {
 	console.log(res)
 }
 
-const searchItemListStyle = {
-	padding: '0 1rem'
-}
-
 const show_examples = res => {
 	ReactDOM.render(
 		<div>
-			<Preview />
-			<div style={searchItemListStyle}>
+			<Preview
+				word={res.word}
+				pronunciation={
+					res.pronunciation
+						? res.pronunciation.all
+							? res.pronunciation.all
+							: res.pronunciation
+						: ''
+				}
+				frequency={res.frequency ? res.frequency : ''}
+				syllablesCount={res.syllables ? res.syllables.count : ''}
+				syllablesList={res.syllables ? res.syllables.list : ''}
+			/>
+			<div
+				style={{
+					padding: '0 1rem'
+				}}
+			>
 				{res.results.map((e, i) => (
 					<ExampleItem
 						key={i}
