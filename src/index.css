@@ -39,7 +39,14 @@ li {
 }
 
 .search-preview {
-	margin-top: 15px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+}
+
+.search-preview span,
+.search-preview small,
+.search-preview b {
+	color: #ff468f;
 }
 
 .search-preview h3 b {

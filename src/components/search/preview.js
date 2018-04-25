@@ -8,7 +8,7 @@ class Preview extends Component {
 		return (
 			<div className="block search-preview">
 				<h3>
-					<b>{this.props.word}</b> <small>({this.props.pronunciation})</small>
+					<b>{this.props.word}</b> (<small>{this.props.pronunciation}</small>)
 				</h3>
 				<p>
 					Frequency - <b>{this.props.frequency}</b>
@@ -17,7 +17,7 @@ class Preview extends Component {
 					<p>
 						<b>{this.props.syllablesCount}</b> Syllable(s){' '}
 						{this.props.syllablesList !== '' ? (
-							<span>{this.props.syllablesList.join(' / ')}</span>
+							<span>{this.props.syllablesList.join(" ' ")}</span>
 						) : (
 							''
 						)}
