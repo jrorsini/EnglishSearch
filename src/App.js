@@ -33,7 +33,7 @@ class App extends Component {
 
 export default App
 
-const defaultWordState = []
+const defaultWordState = { sortBy: 'all', option: [] }
 const defaultFilterState = { sortBy: 'all' }
 
 const wordsReducer = (state = defaultWordState, action) => {
@@ -50,9 +50,14 @@ const wordsReducer = (state = defaultWordState, action) => {
 	}
 }
 
+const filterReducer = (state = defaultFilterState, action) => {
+	return state
+}
+
 const store = createStore(
 	combineReducers({
-		word: wordsReducer
+		word: wordsReducer,
+		filter: filterReducer
 	})
 )
 
