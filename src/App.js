@@ -32,12 +32,16 @@ class App extends Component {
 
 export default App
 
-const defaultWordState = { words: [] }
+const defaultWordState = []
+const defaultFilterState = { sortBy: 'all' }
 
 const store = createStore((state = defaultWordState, action) => {
 	switch (action.type) {
 		case 'ADD_NEW_WORD':
-			return [...state.words, 'hello']
+			return [...state, action.word]
+			break
+		case 'REMOVE_WORD':
+			return state.filter(word => word.word !== action.wordToRemove)
 			break
 		default:
 			return state
@@ -46,12 +50,19 @@ const store = createStore((state = defaultWordState, action) => {
 })
 
 store.subscribe(() => {
-	console.log(store.getState())
+	console.table(store.getState())
 })
 
-const addWord = () => ({
-	type: 'ADD_NEW_WORD'
+const addWord = word => ({
+	type: 'ADD_NEW_WORD',
+	word
+})
+const removeWord = (wordToRemove = '') => ({
+	type: 'REMOVE_WORD',
+	wordToRemove
 })
 
-store.dispatch(addWord())
-store.dispatch(addWord())
+store.dispatch(addWord({ word: 'eat', partOfSpeech: 'verb' }))
+store.dispatch(addWord({ word: 'test', partOfSpeech: 'noun' }))
+store.dispatch(addWord({ word: 'rack', partOfSpeech: 'noun' }))
+store.dispatch(removeWord('test'))
