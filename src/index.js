@@ -1,16 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
-import ExampleItem from './components/search/item.js'
-import Preview from './components/search/preview.js'
-import keyHandler from './logic/keyboard'
-import eng from './logic/english'
-import wapi from './logic/word_api_handler'
-import registerServiceWorker from './registerServiceWorker'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import ExampleItem from './components/search/item.js';
+import Preview from './components/search/preview.js';
+import keyHandler from './logic/keyboard';
+import eng from './logic/english';
+import wapi from './logic/word_api_handler';
+import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
 
 /**
  *
@@ -20,17 +20,25 @@ registerServiceWorker()
  * @function Adds an event handler.
  */
 const event_handler_setter = (element2Apply, eventName, _function) => {
-	element2Apply.addEventListener(eventName, _function)
-}
+	element2Apply.addEventListener(eventName, _function);
+};
 
 const partOfSpeechList = res => {
-	let list = []
+	let list = [];
 	res.results.map(e => {
 		if (list.indexOf(e.partOfSpeech) === -1) {
-			list.push(e.partOfSpeech)
+			list.push(e.partOfSpeech);
 		}
-	})
-	return list
+	});
+	return list;
+};
+
+const partOfSpeechFilter = e => {
+	console.log(e);
+};
+
+class Results extends Component {
+	
 }
 
 const show_result = res => {
@@ -53,7 +61,7 @@ const show_result = res => {
 			/>
 			{partOfSpeechList(res).length > 1 ? (
 				<form>
-					<select>
+					<select onChange={event => partOfSpeechFilter(event)}>
 						<option value="all">All</option>
 						{partOfSpeechList(res).map((e, i) => (
 							<option key={i} value={e}>
@@ -75,8 +83,8 @@ const show_result = res => {
 			</div>
 		</div>,
 		document.getElementById('js-examples')
-	)
-}
+	);
+};
 
 const show_examples = res =>
 	res.results.map((e, i) => (
@@ -89,17 +97,17 @@ const show_examples = res =>
 			typeOf={wapi.get_prop_value(e, 'typeOf')}
 			examples={wapi.get_prop_value(e, 'examples')}
 		/>
-	))
+	));
 
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
 		wapi
 			.search(eng.format(document.getElementById('js-search_bar').value))
 			.then(res => {
-				console.log(res.results.map(e => wapi.get_prop_value(e, 'synonyms')))
-				show_result(res)
-				console.log()
+				console.log(res.results.map(e => wapi.get_prop_value(e, 'synonyms')));
+				show_result(res);
+				console.log();
 			})
 			.catch(err => console.log(err))
 	)
-)
+);
