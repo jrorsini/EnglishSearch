@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
 import App from './App'
 import ExampleItem from './components/search/item.js'
 import Preview from './components/search/preview.js'

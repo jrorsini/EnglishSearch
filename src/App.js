@@ -4,6 +4,7 @@ import Search from './components/search'
 import List from './components/list'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
+import './index.css'
 import { createStore, combineReducers } from 'redux'
 
 const divStyle = {
@@ -56,7 +57,7 @@ const store = createStore(
 )
 
 store.subscribe(() => {
-	console.table(store.getState())
+	console.log(store.getState())
 })
 
 const addWord = word => ({
