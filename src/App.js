@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import Nav from './components/nav'
-import Home from './components/home'
-import Search from './components/search'
-import List from './components/list'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import './App.css'
+import React, { Component } from 'react';
+import Nav from './components/nav';
+import Search from './components/search';
+import List from './components/list';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './App.css';
+import './index.css';
+import { createStore, combineReducers } from 'redux';
 
 const divStyle = {
 	margin: 'auto',
 	width: '40rem',
 	padding: '2rem 0'
-}
+};
 
 class App extends Component {
 	render() {
@@ -26,8 +27,54 @@ class App extends Component {
 					</div>
 				</div>
 			</Router>
-		)
+		);
 	}
 }
 
-export default App
+export default App;
+
+const defaultWordState = { sortBy: 'all', option: [] };
+const defaultFilterState = { sortBy: 'all' };
+
+const wordsReducer = (state = defaultWordState, action) => {
+	switch (action.type) {
+		case 'ADD_NEW_WORD':
+			return [...state, action.word];
+			break;
+		case 'REMOVE_WORD':
+			return state.filter(word => word.word !== action.wordToRemove);
+			break;
+		default:
+			return state;
+			break;
+	}
+};
+
+const filterReducer = (state = defaultFilterState, action) => {
+	return state;
+};
+
+const store = createStore(
+	combineReducers({
+		word: wordsReducer,
+		filter: filterReducer
+	})
+);
+
+store.subscribe(() => {
+	console.log(store.getState());
+});
+
+const addWord = word => ({
+	type: 'ADD_NEW_WORD',
+	word
+});
+const removeWord = (wordToRemove = '') => ({
+	type: 'REMOVE_WORD',
+	wordToRemove
+});
+
+store.dispatch(addWord({ word: 'eat', partOfSpeech: 'verb' }));
+store.dispatch(addWord({ word: 'test', partOfSpeech: 'noun' }));
+store.dispatch(addWord({ word: 'rack', partOfSpeech: 'noun' }));
+store.dispatch(removeWord('test'));

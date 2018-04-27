@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import ExampleItem from './components/search/item.js';
 import Preview from './components/search/preview.js';
@@ -23,7 +22,7 @@ const event_handler_setter = (element2Apply, eventName, _function) => {
 	element2Apply.addEventListener(eventName, _function);
 };
 
-const partOfSpeechList = res => {
+const getPartOfSpeechList = res => {
 	let list = [];
 	res.results.map(e => {
 		if (list.indexOf(e.partOfSpeech) === -1) {
@@ -37,9 +36,7 @@ const partOfSpeechFilter = e => {
 	console.log(e);
 };
 
-class Results extends Component {
-	
-}
+class Results extends Component {}
 
 const show_result = res => {
 	// console.log(res)
@@ -59,11 +56,11 @@ const show_result = res => {
 				syllablesCount={res.syllables ? res.syllables.count : ''}
 				syllablesList={res.syllables ? res.syllables.list : ''}
 			/>
-			{partOfSpeechList(res).length > 1 ? (
+			{getPartOfSpeechList(res).length > 1 ? (
 				<form>
 					<select onChange={event => partOfSpeechFilter(event)}>
 						<option value="all">All</option>
-						{partOfSpeechList(res).map((e, i) => (
+						{getPartOfSpeechList(res).map((e, i) => (
 							<option key={i} value={e}>
 								{e}
 							</option>
@@ -79,23 +76,23 @@ const show_result = res => {
 					padding: '0 1rem'
 				}}
 			>
-				{show_examples(res)}
+				{show_meanings(res.results)}
 			</div>
 		</div>,
 		document.getElementById('js-examples')
 	);
 };
 
-const show_examples = res =>
-	res.results.map((e, i) => (
+const show_meanings = meanings =>
+	meanings.map((meaning, i) => (
 		<ExampleItem
 			key={i}
-			definition={wapi.get_prop_value(e, 'definition')}
-			partOfSpeech={wapi.get_prop_value(e, 'partOfSpeech')}
-			hasTypes={wapi.get_prop_value(e, 'hasTypes')}
-			synonyms={wapi.get_prop_value(e, 'synonyms')}
-			typeOf={wapi.get_prop_value(e, 'typeOf')}
-			examples={wapi.get_prop_value(e, 'examples')}
+			definition={wapi.get_prop_value(meaning, 'definition')}
+			partOfSpeech={wapi.get_prop_value(meaning, 'partOfSpeech')}
+			hasTypes={wapi.get_prop_value(meaning, 'hasTypes')}
+			synonyms={wapi.get_prop_value(meaning, 'synonyms')}
+			typeOf={wapi.get_prop_value(meaning, 'typeOf')}
+			examples={wapi.get_prop_value(meaning, 'examples')}
 		/>
 	));
 

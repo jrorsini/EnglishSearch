@@ -1,33 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 /**
  * @class creates Result's example items.
  */
 class ExampleItem extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
+		const {
+			typeOf,
+			partOfSpeech,
+			definition,
+			hasTypes,
+			examples,
+			synonyms
+		} = this.props
+
 		return (
 			<div className="block search-item">
-				{this.props.typeOf !== false ? (
+				{typeOf ? (
 					<small>
 						<b>type of: </b>
-						{Object.values(this.props.typeOf).join(', ')}
+						{Object.values(typeOf).join(', ')}
 					</small>
 				) : (
 					''
 				)}
 
 				<p>
-					<b>{this.props.partOfSpeech}_</b> {this.props.definition}
+					<b>{partOfSpeech}_</b> {definition}
 				</p>
 
-				{this.props.hasTypes !== false ? (
+				{hasTypes ? (
 					<p>
 						<u>types:</u>
-						{Object.values(this.props.hasTypes)
+						{Object.values(hasTypes)
 							.slice(0, 2)
 							.join(', ')}
 					</p>
@@ -35,9 +40,9 @@ class ExampleItem extends Component {
 					''
 				)}
 
-				{this.props.examples !== false ? (
+				{examples ? (
 					<i>
-						{Object.values(this.props.examples)
+						{Object.values(examples)
 							.map(e => `"${e}"`)
 							.join(', ')}
 					</i>
@@ -47,14 +52,12 @@ class ExampleItem extends Component {
 
 				<p>
 					<b>
-						{this.props.synonyms !== false
-							? `synonyms: ${Object.values(this.props.synonyms).join(', ')}`
-							: ''}
+						{synonyms ? `synonyms: ${Object.values(synonyms).join(', ')}` : ''}
 					</b>
 				</p>
 			</div>
-		);
+		)
 	}
 }
 
-export default ExampleItem;
+export default ExampleItem

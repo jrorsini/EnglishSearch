@@ -10,7 +10,7 @@ class SearchBar extends Component {
 				type="text"
 				className="search_bar"
 				id="js-search_bar"
-				autocomplete="off"
+				autoComplete="off"
 			/>
 		)
 	}
