@@ -17,7 +17,7 @@ const words = sentence => {
 	return sentence
 		.trim()
 		.split(/\s/)
-		.map(e => e.replace(/[\.\,\:\?\!]/gi, ''))
+		.map(e => e.replace(/[.,:?!]/gi, ''))
 }
 
 /**

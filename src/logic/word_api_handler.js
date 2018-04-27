@@ -24,7 +24,7 @@ const search = word =>
 		xhr.setRequestHeader('Accept', 'application/json')
 		xhr.send()
 		xhr.onreadystatechange = () => {
-			if (xhr.readyState === 4 && xhr.status == 200) {
+			if (xhr.readyState === 4 && xhr.status === 200) {
 				resolve(JSON.parse(xhr.responseText))
 			} else if (xhr.status !== 200) {
 				reject(xhr.statusText)

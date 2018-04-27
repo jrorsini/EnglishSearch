@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { BrowserRouter as Link } from 'react-router-dom'
 
 class Nav extends Component {
 	render() {
@@ -18,8 +18,8 @@ class Nav extends Component {
 					</li>
 				</ul>
 			</nav>
-		);
+		)
 	}
 }
 
-export default Nav;
+export default Nav

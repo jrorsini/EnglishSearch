@@ -4,10 +4,6 @@ import React, { Component } from 'react'
  * @class creates Result's example items.
  */
 class ExampleItem extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		const {
 			typeOf,
