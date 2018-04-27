@@ -4,7 +4,7 @@ import Search from './components/search'
 import List from './components/list'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 
 const divStyle = {
 	margin: 'auto',
@@ -35,7 +35,7 @@ export default App
 const defaultWordState = []
 const defaultFilterState = { sortBy: 'all' }
 
-const store = createStore((state = defaultWordState, action) => {
+const wordsReducer = (state = defaultWordState, action) => {
 	switch (action.type) {
 		case 'ADD_NEW_WORD':
 			return [...state, action.word]
@@ -47,7 +47,13 @@ const store = createStore((state = defaultWordState, action) => {
 			return state
 			break
 	}
-})
+}
+
+const store = createStore(
+	combineReducers({
+		word: wordsReducer
+	})
+)
 
 store.subscribe(() => {
 	console.table(store.getState())
