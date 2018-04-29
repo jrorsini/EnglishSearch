@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 /**
  * @class creates Search component.
@@ -12,8 +12,8 @@ class SearchBar extends Component {
 				id="js-search_bar"
 				autoComplete="off"
 			/>
-		)
+		);
 	}
 }
 
-export default SearchBar
+export default SearchBar;

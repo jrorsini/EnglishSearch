@@ -33,8 +33,9 @@ class App extends Component {
 
 export default App;
 
-const defaultWordState = { sortBy: 'all', option: [] };
-const defaultFilterState = { sortBy: 'all' };
+const defaultWordState = [];
+const defaultFilterState = { sortBy: 'all', option: [] };
+const defaultCurrentWord = {};
 
 const wordsReducer = (state = defaultWordState, action) => {
 	switch (action.type) {
