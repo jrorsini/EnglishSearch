@@ -33,17 +33,22 @@ class App extends Component {
 
 export default App;
 
-const defaultWordState = [];
 const defaultFilterState = { sortBy: 'all', option: [] };
-const defaultCurrentWord = {};
+const defaultWordState = { curr: {}, list: [] };
 
 const wordsReducer = (state = defaultWordState, action) => {
 	switch (action.type) {
 		case 'ADD_NEW_WORD':
-			return [...state, action.word];
+			return { ...state, list: [...state.list, action.word] };
 			break;
 		case 'REMOVE_WORD':
-			return state.filter(word => word.word !== action.wordToRemove);
+			return {
+				...state,
+				list: state.list.filter(word => word.word !== action.wordToRemove)
+			};
+			break;
+		case 'SET_CURR_WORD':
+			return { ...state, curr: { word: action.word } };
 			break;
 		default:
 			return state;
