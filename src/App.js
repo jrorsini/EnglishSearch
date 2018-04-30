@@ -80,7 +80,13 @@ const removeWord = (wordToRemove = '') => ({
 	wordToRemove
 });
 
+const setCurrWord = (currWord = '') => ({
+	type: 'SET_CURR_WORD',
+	currWord
+});
+
 store.dispatch(addWord({ word: 'eat', partOfSpeech: 'verb' }));
 store.dispatch(addWord({ word: 'test', partOfSpeech: 'noun' }));
 store.dispatch(addWord({ word: 'rack', partOfSpeech: 'noun' }));
 store.dispatch(removeWord('test'));
+store.dispatch(setCurrWord('test'));
