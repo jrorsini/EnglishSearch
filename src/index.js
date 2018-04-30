@@ -107,7 +107,6 @@ event_handler_setter(document.body, 'keydown', event =>
 		wapi
 			.search(eng.format(document.getElementById('js-search_bar').value))
 			.then(res => {
-				console.log(res.results.map(e => wapi.get_prop_value(e, 'synonyms')));
 				show_result(res);
 				store.dispatch(setCurrWord(res.word));
 			})
