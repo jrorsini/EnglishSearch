@@ -7,6 +7,8 @@ import keyHandler from './logic/keyboard';
 import eng from './logic/english';
 import wapi from './logic/word_api_handler';
 import registerServiceWorker from './registerServiceWorker';
+import { addWord, removeWord, setCurrWord } from './actions/search';
+import store from './stores/search';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
@@ -96,6 +98,10 @@ const show_meanings = meanings =>
 		/>
 	));
 
+store.subscribe(() => {
+	console.log(store.getState());
+});
+
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
 		wapi
@@ -103,8 +109,13 @@ event_handler_setter(document.body, 'keydown', event =>
 			.then(res => {
 				console.log(res.results.map(e => wapi.get_prop_value(e, 'synonyms')));
 				show_result(res);
-				console.log();
+				store.dispatch(setCurrWord(res.word));
 			})
 			.catch(err => console.log(err))
 	)
 );
+
+store.dispatch(addWord({ word: 'eat', partOfSpeech: 'verb' }));
+store.dispatch(addWord({ word: 'test', partOfSpeech: 'noun' }));
+store.dispatch(addWord({ word: 'rack', partOfSpeech: 'noun' }));
+store.dispatch(removeWord('test'));

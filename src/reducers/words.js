@@ -12,7 +12,7 @@ const wordsReducer = (state = defaultWordState, action) => {
 			};
 			break;
 		case 'SET_CURR_WORD':
-			return { ...state, curr: { word: action.word } };
+			return { ...state, curr: { word: action.currWord } };
 			break;
 		default:
 			return state;
