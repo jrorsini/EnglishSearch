@@ -11,10 +11,10 @@ import eng from './logic/english';
 import wapi from './logic/word_api_handler';
 import store from './stores/search';
 import ReactDOM from 'react-dom';
+import showResult from './logic/search';
 import keyHandler from './logic/keyboard';
 import registerServiceWorker from './registerServiceWorker';
 import React, { Component } from 'react';
-import { show_result, show_meanings } from './logic/search';
 import { addWord, removeWord, setCurrWord } from './actions/search';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -42,7 +42,7 @@ event_handler_setter(document.body, 'keydown', event =>
 		wapi
 			.search(eng.format(document.getElementById('js-search_bar').value))
 			.then(res => {
-				show_result(res);
+				showResult(res);
 				store.dispatch(setCurrWord(res.word));
 			})
 			.catch(err => console.log(err))

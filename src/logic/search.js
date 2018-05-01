@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import ExampleItem from './components/search/item.js';
-import Preview from './components/search/preview.js';
+import ExampleItem from '../components/search/item.js';
+import Preview from '../components/search/preview.js';
+import wapi from './word_api_handler';
 
 const show_meanings = meanings =>
 	meanings.map((meaning, i) => (
@@ -30,7 +31,7 @@ const partOfSpeechFilter = e => {
 	console.log(e);
 };
 
-const show_result = res => {
+const showResult = res => {
 	// console.log(res)
 	//https://glosbe.com/gapi/translate?from=eng&dest=fra&format=json&phrase=hello&pretty=true
 	ReactDOM.render(
@@ -75,7 +76,4 @@ const show_result = res => {
 	);
 };
 
-module.exports = {
-	show_result,
-	show_meanings
-};
+export default showResult;
