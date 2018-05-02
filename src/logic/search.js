@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import ExampleItem from '../components/search/item.js';
-import Preview from '../components/search/preview.js';
+import ExampleItem from '../components/search/item';
+import Preview from '../components/search/preview';
+import Filter from '../components/search/filter';
 import wapi from './word_api_handler';
 
 const show_meanings = meanings =>
@@ -27,10 +28,6 @@ const getPartOfSpeechList = res => {
 	return list;
 };
 
-const partOfSpeechFilter = e => {
-	console.log(e);
-};
-
 const showResult = res => {
 	// console.log(res)
 	//https://glosbe.com/gapi/translate?from=eng&dest=fra&format=json&phrase=hello&pretty=true
@@ -50,20 +47,10 @@ const showResult = res => {
 				syllablesList={res.syllables ? res.syllables.list : ''}
 			/>
 			{getPartOfSpeechList(res).length > 1 ? (
-				<form>
-					<select onChange={event => partOfSpeechFilter(event)}>
-						<option value="all">All</option>
-						{getPartOfSpeechList(res).map((e, i) => (
-							<option key={i} value={e}>
-								{e}
-							</option>
-						))}
-					</select>
-				</form>
+				<Filter partOfSpeech={getPartOfSpeechList(res)} />
 			) : (
 				''
 			)}
-
 			<div
 				style={{
 					padding: '0 1rem'
