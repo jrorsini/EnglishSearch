@@ -5,14 +5,14 @@ class Filter extends Component {
 		super(props);
 	}
 
-	partOfSpeechFilter(e) {
-		console.log(e);
+	partOfSpeechFilter(event) {
+		console.log(event.target.value);
 	}
 
 	render() {
 		return (
 			<form>
-				<select onChange={event => this.partOfSpeechFilter(event)}>
+				<select onChange={this.partOfSpeechFilter}>
 					<option value="all">All</option>
 					{this.props.partOfSpeech.map((e, i) => (
 						<option key={i} value={e}>
