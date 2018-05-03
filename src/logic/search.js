@@ -5,18 +5,20 @@ import Preview from '../components/search/preview';
 import Filter from '../components/search/filter';
 import wapi from './word_api_handler';
 
-const show_meanings = (meanings, filer = 'all') =>
-	meanings.map((meaning, i) => (
-		<ExampleItem
-			key={i}
-			definition={wapi.get_prop_value(meaning, 'definition')}
-			partOfSpeech={wapi.get_prop_value(meaning, 'partOfSpeech')}
-			hasTypes={wapi.get_prop_value(meaning, 'hasTypes')}
-			synonyms={wapi.get_prop_value(meaning, 'synonyms')}
-			typeOf={wapi.get_prop_value(meaning, 'typeOf')}
-			examples={wapi.get_prop_value(meaning, 'examples')}
-		/>
-	));
+const show_meanings = (meanings, filter = 'all') =>
+	meanings
+		// .filter(e => wapi.get_prop_value(meaning, 'partOfSpeech') !== filter)
+		.map((meaning, i) => (
+			<ExampleItem
+				key={i}
+				definition={wapi.get_prop_value(meaning, 'definition')}
+				partOfSpeech={wapi.get_prop_value(meaning, 'partOfSpeech')}
+				hasTypes={wapi.get_prop_value(meaning, 'hasTypes')}
+				synonyms={wapi.get_prop_value(meaning, 'synonyms')}
+				typeOf={wapi.get_prop_value(meaning, 'typeOf')}
+				examples={wapi.get_prop_value(meaning, 'examples')}
+			/>
+		));
 
 const getPartOfSpeechList = res => {
 	let list = [];
