@@ -5,7 +5,7 @@ import Preview from '../components/search/preview';
 import Filter from '../components/search/filter';
 import wapi from './word_api_handler';
 
-const show_meanings = meanings =>
+const show_meanings = (meanings, filer = 'all') =>
 	meanings.map((meaning, i) => (
 		<ExampleItem
 			key={i}
