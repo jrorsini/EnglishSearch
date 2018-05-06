@@ -4,7 +4,7 @@
  * @param {String} prop propety value to look for from result element.
  * @return {String} definition of the element.
  */
-const get_prop_value = (e, prop) => (e[prop] ? e[prop] : false)
+const get_prop_value = (e, prop) => (e[prop] ? e[prop] : false);
 
 /**
  *
@@ -15,21 +15,21 @@ const get_prop_value = (e, prop) => (e[prop] ? e[prop] : false)
  */
 const search = word =>
 	new Promise((resolve, reject) => {
-		const xhr = new XMLHttpRequest()
-		xhr.open('GET', `https://wordsapiv1.p.mashape.com/words/${word}/`)
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', `https://wordsapiv1.p.mashape.com/words/${word}/`);
 		xhr.setRequestHeader(
 			'X-Mashape-Key',
 			'EM2LjqPX7NmshWE6CHvwADy0hGEkp1R0TUGjsnD7oIZjmUisZt'
-		)
-		xhr.setRequestHeader('Accept', 'application/json')
-		xhr.send()
+		);
+		xhr.setRequestHeader('Accept', 'application/json');
+		xhr.send();
 		xhr.onreadystatechange = () => {
 			if (xhr.readyState === 4 && xhr.status === 200) {
-				resolve(JSON.parse(xhr.responseText))
+				resolve(JSON.parse(xhr.responseText));
 			} else if (xhr.status !== 200) {
-				reject(xhr.statusText)
+				reject(xhr.statusText);
 			}
-		}
-	})
+		};
+	});
 
-module.exports = { search, get_prop_value }
+module.exports = { search, get_prop_value };

@@ -9,12 +9,16 @@
 import App from './App';
 import eng from './logic/english';
 import wapi from './logic/word_api_handler';
-import store from './configureStore';
-import ReactDOM from 'react-dom';
 import showResult from './logic/search';
 import keyHandler from './logic/keyboard';
+
+import ReactDOM from 'react-dom';
+
 import registerServiceWorker from './registerServiceWorker';
+
 import React, { Component } from 'react';
+
+import store from './configureStore';
 import { addWord, removeWord, setCurrWord } from './actions/search';
 
 ReactDOM.render(<App />, document.getElementById('root'));
