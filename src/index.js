@@ -7,6 +7,7 @@
 // DONE
 
 import App from './App';
+
 import eng from './logic/english';
 import wapi from './logic/word_api_handler';
 import showResult from './logic/search';

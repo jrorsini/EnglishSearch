@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './components/nav';
-import Search from './components/search';
 import List from './components/list';
+import Search from './components/search';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import './index.css';
