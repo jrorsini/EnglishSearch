@@ -8,7 +8,7 @@ import './index.css'
 
 const divStyle = {
 	margin: 'auto',
-	width: '40rem',
+	width: '70%',
 	padding: '2rem 0'
 }
 

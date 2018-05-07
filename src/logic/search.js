@@ -7,7 +7,7 @@ import wapi from './word_api_handler'
 
 const show_meanings = (meanings, filter = 'all') =>
 	meanings
-		.filter(e => wapi.get_prop_value(meaning, 'partOfSpeech') !== filter)
+		// .filter(e => wapi.get_prop_value(meaning, 'partOfSpeech') !== filter)
 		.map((meaning, i) => (
 			<ExampleItem
 				key={i}
@@ -26,6 +26,10 @@ const getPartOfSpeechList = res => {
 		list.indexOf(e.partOfSpeech) === -1 && list.push(e.partOfSpeech)
 	})
 	return list
+}
+
+const showResultOld = res => {
+	console.log(res)
 }
 
 const showResult = res => {
