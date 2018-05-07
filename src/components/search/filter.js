@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import store from '../../configureStore'
+import { setFilter } from '../../actions/filter'
+
+store.subscribe(() => {
+	console.log(store.getState())
+})
 
 class Filter extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	partOfSpeechFilter(event) {
-		console.log(event.target.value);
+		store.dispatch(setFilter(event.target.value))
 	}
 
 	render() {
@@ -21,8 +27,8 @@ class Filter extends Component {
 					))}
 				</select>
 			</form>
-		);
+		)
 	}
 }
 
-export default Filter;
+export default Filter
