@@ -1,14 +1,14 @@
-const defaultFilterState = { sortBy: 'all', option: [] }
+const defaultFilterState = { sortBy: 'all', option: [] };
 
 const filterReducer = (state = defaultFilterState, action) => {
 	switch (action.type) {
 		case 'SET_FILTER':
-			return { ...state, sortBy: action.text }
-			break
+			return { ...state, sortBy: action.text };
+			break;
 		default:
-			break
+			break;
 	}
-	return state
-}
+	return state;
+};
 
-export filterReducer
+export default filterReducer;

@@ -1,9 +1,9 @@
-import ReactDOM from 'react-dom'
-import React from 'react'
-import ExampleItem from '../components/search/item'
-import Preview from '../components/search/preview'
-import Filter from '../components/search/filter'
-import wapi from './word_api_handler'
+import ReactDOM from 'react-dom';
+import React from 'react';
+import ExampleItem from '../components/search/item';
+import Preview from '../components/search/preview';
+import Filter from '../components/search/filter';
+import wapi from './word_api_handler';
 
 const show_meanings = (meanings, filter = 'all') =>
 	meanings
@@ -18,19 +18,19 @@ const show_meanings = (meanings, filter = 'all') =>
 				typeOf={wapi.get_prop_value(meaning, 'typeOf')}
 				examples={wapi.get_prop_value(meaning, 'examples')}
 			/>
-		))
+		));
 
 const getPartOfSpeechList = res => {
-	let list = []
+	let list = [];
 	res.results.map(e => {
-		list.indexOf(e.partOfSpeech) === -1 && list.push(e.partOfSpeech)
-	})
-	return list
-}
+		list.indexOf(e.partOfSpeech) === -1 && list.push(e.partOfSpeech);
+	});
+	return list;
+};
 
 const showResultOld = res => {
-	console.log(res)
-}
+	console.log(res);
+};
 
 const showResult = res => {
 	// console.log(res)
@@ -64,7 +64,7 @@ const showResult = res => {
 			</div>
 		</div>,
 		document.getElementById('js-examples')
-	)
-}
+	);
+};
 
-export default showResult
+export default showResult;

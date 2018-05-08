@@ -20,4 +20,4 @@ const wordsReducer = (state = defaultWordState, action) => {
 	}
 };
 
-export wordsReducer;
+export default wordsReducer;
