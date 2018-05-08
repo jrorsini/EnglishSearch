@@ -11,9 +11,4 @@ const setCurrWord = (currWord = '') => ({
 	type: 'SET_CURR_WORD',
 	currWord
 })
-
-module.exports = {
-	addWord,
-	removeWord,
-	setCurrWord
-}
+export { addWord, removeWord, setCurrWord }

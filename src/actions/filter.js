@@ -3,6 +3,4 @@ const setFilter = (text = 'all') => ({
 	text
 })
 
-module.exports = {
-	setFilter
-}
+export { setFilter }

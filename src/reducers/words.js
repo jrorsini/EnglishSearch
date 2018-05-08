@@ -20,4 +20,4 @@ const wordsReducer = (state = defaultWordState, action) => {
 	}
 };
 
-module.exports = wordsReducer;
+export wordsReducer;

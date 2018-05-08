@@ -11,4 +11,4 @@ const filterReducer = (state = defaultFilterState, action) => {
 	return state
 }
 
-module.exports = filterReducer
+export filterReducer

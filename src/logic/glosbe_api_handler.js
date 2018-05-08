@@ -29,4 +29,4 @@ const search = word =>
 		}
 	})
 
-module.exports = { search }
+export { search }

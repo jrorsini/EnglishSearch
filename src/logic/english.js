@@ -47,8 +47,4 @@ const format = sentence =>
 			: first(sentence)
 		: first(sentence)
 
-module.exports = {
-	is_preposition,
-	format,
-	words
-}
+export { is_preposition, format, words }

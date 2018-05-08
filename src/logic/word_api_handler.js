@@ -31,5 +31,4 @@ const search = word =>
 			}
 		}
 	})
-
-module.exports = { search, get_prop_value }
+export { search, get_prop_value }
