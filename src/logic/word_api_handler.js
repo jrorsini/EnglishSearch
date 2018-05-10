@@ -32,4 +32,4 @@ const search = word =>
 		};
 	});
 
-export { search as default, get_prop_value };
+export { search, get_prop_value };

@@ -3,7 +3,7 @@ import React from 'react';
 import ExampleItem from '../components/search/item';
 import Preview from '../components/search/preview';
 import Filter from '../components/search/filter';
-import wapi from './word_api_handler';
+import { search, get_prop_value } from './word_api_handler';
 
 const show_meanings = (meanings, filter = 'all') =>
 	meanings
@@ -11,12 +11,12 @@ const show_meanings = (meanings, filter = 'all') =>
 		.map((meaning, i) => (
 			<ExampleItem
 				key={i}
-				definition={wapi.get_prop_value(meaning, 'definition')}
-				partOfSpeech={wapi.get_prop_value(meaning, 'partOfSpeech')}
-				hasTypes={wapi.get_prop_value(meaning, 'hasTypes')}
-				synonyms={wapi.get_prop_value(meaning, 'synonyms')}
-				typeOf={wapi.get_prop_value(meaning, 'typeOf')}
-				examples={wapi.get_prop_value(meaning, 'examples')}
+				definition={get_prop_value(meaning, 'definition')}
+				partOfSpeech={get_prop_value(meaning, 'partOfSpeech')}
+				hasTypes={get_prop_value(meaning, 'hasTypes')}
+				synonyms={get_prop_value(meaning, 'synonyms')}
+				typeOf={get_prop_value(meaning, 'typeOf')}
+				examples={get_prop_value(meaning, 'examples')}
 			/>
 		));
 

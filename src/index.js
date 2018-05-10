@@ -8,8 +8,8 @@
 
 import App from './App';
 
-import eng from './logic/english';
-import wapi from './logic/word_api_handler';
+import { is_preposition, format, words as eng } from './logic/english';
+import { search, get_prop_value as wapi } from './logic/word_api_handler';
 import showResult from './logic/search';
 import keyHandler from './logic/keyboard';
 
@@ -47,7 +47,7 @@ class Results extends Component {}
 event_handler_setter(document.body, 'keydown', event =>
 	keyHandler(event, 13, () =>
 		wapi
-			.search(eng.format(document.getElementById('js-search_bar').value))
+			.search(eng(document.getElementById('js-search_bar').value))
 			.then(res => {
 				showResult(res);
 				store.dispatch(setCurrWord(res.word));

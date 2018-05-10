@@ -47,4 +47,4 @@ const format = sentence =>
 			: first(sentence)
 		: first(sentence);
 
-export { is_preposition, format as default, words };
+export { is_preposition, format, words };
