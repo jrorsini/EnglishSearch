@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 /**
  * @class creates Result's example items.
@@ -12,7 +13,7 @@ class ExampleItem extends Component {
 			hasTypes,
 			examples,
 			synonyms
-		} = this.props
+		} = this.props;
 
 		return (
 			<div className="block search-item">
@@ -56,8 +57,8 @@ class ExampleItem extends Component {
 					</b>
 				</p>
 			</div>
-		)
+		);
 	}
 }
 
-export default ExampleItem
+export default ExampleItem;
