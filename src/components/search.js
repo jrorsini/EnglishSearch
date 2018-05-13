@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import SearchBar from './search/search-bar'
+import React, { Component } from 'react';
+import SearchBar from './search/search-bar';
 
 class Search extends Component {
 	render() {
@@ -8,8 +8,8 @@ class Search extends Component {
 				<SearchBar />
 				<div id="js-examples" />
 			</div>
-		)
+		);
 	}
 }
 
-export default Search
+export default Search;
