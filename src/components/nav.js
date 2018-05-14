@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { BrowserRouter as Route, Link } from 'react-router-dom'
 
 class Nav extends Component {
 	render() {
@@ -6,19 +7,19 @@ class Nav extends Component {
 			<nav className="nav">
 				<ul>
 					<li>
-						<a className="nav-link" to="/search">
+						<Link className="nav-link" to="/search">
 							Search
-						</a>
+						</Link>
 					</li>
 					<li>
-						<a className="nav-link" to="/list">
+						<Link className="nav-link" to="/list">
 							List
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>
-		);
+		)
 	}
 }
 
-export default Nav;
+export default Nav
